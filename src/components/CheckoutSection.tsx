@@ -1,10 +1,21 @@
 'use client'
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const CheckoutSection = () => {
+    const router = useRouter();
+
     return (
-        <section className="bg-white text-black px-4 py-8">
+        <section className="bg-white text-black min-h-screen px-4 py-8 relative">
+            {/* Seta de Voltar */}
+            <button
+                onClick={() => router.back()}
+                className="absolute top-4 left-4 flex items-center bg-black text-white p-2 rounded-lg hover:text-gray-600 cursor-pointer"
+            >
+                Voltar
+            </button>
+
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-center font-bold text-xl mb-4">Oferta Termina Em</h2>
 
