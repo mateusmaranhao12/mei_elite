@@ -2,9 +2,48 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 
 const CheckoutSection = () => {
     const router = useRouter();
+
+    const [formData, setFormData] = useState({
+        nome: '',
+        email: '',
+        whatsapp: '',
+        cpf: ''
+    })
+
+    const [errors, setErrors] = useState({
+        nome: '',
+        email: '',
+        whatsapp: '',
+        cpf: ''
+    })
+
+    const validate = () => {
+        const newErrors = {
+            nome: formData.nome.trim() === '' ? 'Por favor, digite seu nome completo.' : '',
+            email: /^\S+@\S+\.\S+$/.test(formData.email) ? '' : 'Digite um e-mail válido.',
+            whatsapp: /^\d{10,}$/.test(formData.whatsapp.replace(/\D/g, '')) ? '' : 'Informe um número válido com DDD.',
+            cpf: /^\d{11}$/.test(formData.cpf.replace(/\D/g, '')) ? '' : 'Digite um CPF válido com 11 números.'
+        }
+
+        setErrors(newErrors)
+        return Object.values(newErrors).every(error => error === '')
+    }
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    }
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
+        if (validate()) {
+            router.push('/obrigado-page')
+        }
+    }
 
     return (
         <section className="bg-white text-black min-h-screen px-4 py-8 relative">
@@ -45,32 +84,47 @@ const CheckoutSection = () => {
                             enviar notificações necessárias.
                         </p>
 
-                        <form className="flex flex-col gap-4">
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                             <input
+                                name='nome'
+                                value={formData.nome}
+                                onChange={handleChange}
                                 type="text"
                                 placeholder="Nome completo*"
                                 className="p-2 border rounded"
-                                required
                             />
+                            {errors.nome && <p className="text-red-500 text-sm mt-1">{errors.nome}</p>}
+
                             <input
-                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
                                 placeholder="E-mail*"
                                 className="p-2 border rounded"
-                                required
                             />
+                            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+
                             <input
-                                type="text"
+                                name="whatsapp"
+                                value={formData.whatsapp}
+                                onChange={handleChange}
                                 placeholder="Celular/WhatsApp (com DDD)*"
-                                className="p-2 border rounded"
-                                required
+                                className="p-2 border rounded w-full"
                             />
-                            <input
-                                type="text"
-                                placeholder="CPF*"
-                                className="p-2 border rounded"
-                                required
-                            />
-                            <button type="submit" className="bg-black text-white py-2 rounded hover:bg-gray-800">
+                            {errors.whatsapp && <p className="text-red-500 text-sm mt-1">{errors.whatsapp}</p>}
+
+                            <div>
+                                <input
+                                    name="cpf"
+                                    value={formData.cpf}
+                                    onChange={handleChange}
+                                    placeholder="CPF*"
+                                    className="p-2 border rounded w-full"
+                                />
+                                {errors.cpf && <p className="text-red-500 text-sm mt-1">{errors.cpf}</p>}
+                            </div>
+
+                            <button type="submit" className="cursor-pointer bg-black text-white py-2 rounded hover:bg-gray-800">
                                 Continuar
                             </button>
                         </form>
