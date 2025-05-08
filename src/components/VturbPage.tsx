@@ -25,7 +25,7 @@ const VturbPage = () => {
             </div>
 
             <a
-                href="/proxima-pagina"
+                href="/checkout-section"
                 className="bg-red-600 hover:bg-red-700 transition-colors text-white font-bold py-3 px-6 rounded-full text-lg"
             >
                 Acesse agora
