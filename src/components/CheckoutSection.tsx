@@ -156,7 +156,7 @@ const CheckoutSection = () => {
                         <p className="text-sm mb-4">Produto: Programa de 10 Semanas Sistema Unfair Advantage</p>
                         <p className="text-green-600 font-semibold text-lg mb-4">TOTAL: R$ 297,00</p>
                         <Image
-                            src="/assets/capa-curso.jpeg"
+                            src="https://conectahubdigital.com.br/assets/capa-curso.jpeg"
                             alt="Produto"
                             width={300}
                             height={400}

@@ -40,7 +40,7 @@ const ObrigadoPage = () => {
                 {/* Imagem ilustrativa (substituindo o gif) */}
                 <div className="inline-block">
                     <Image
-                        src="/assets/otavio.jpeg"
+                        src="https://conectahubdigital.com.br/assets/otavio.jpeg"
                         alt="Imagem obrigado"
                         width={320}
                         height={180}
