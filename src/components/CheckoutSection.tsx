@@ -52,10 +52,10 @@ const CheckoutSection = () => {
             }
 
             await emailjs.send(
-                'service_zat0rtj',
-                'template_prmxr81',
+                'service_2gbhi3h',
+                'service_gh8clpe',
                 templateParams,
-                'hJrQXjzu6bgBnyM8x'
+                'RGF3EmnIiQ62BX9IH'
             )
 
             router.push('/obrigado-page')
