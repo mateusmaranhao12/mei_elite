@@ -1,8 +1,9 @@
 'use client'
 
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const CheckoutSection = () => {
     const router = useRouter();
@@ -38,10 +39,29 @@ const CheckoutSection = () => {
         setFormData(prev => ({ ...prev, [name]: value }));
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        if (validate()) {
+        if (!validate()) return
+
+        try {
+            const templateParams = {
+                nome: formData.nome,
+                email: formData.email,
+                whatsapp: formData.whatsapp,
+                cpf: formData.cpf
+            }
+
+            await emailjs.send(
+                'service_zat0rtj',
+                'template_prmxr81',
+                templateParams,
+                'hJrQXjzu6bgBnyM8x'
+            )
+
             router.push('/obrigado-page')
+        } catch (error) {
+            console.error('Erro ao enviar email:', error);
+            alert('Erro ao enviar e-mail. Tente novamente.');
         }
     }
 
