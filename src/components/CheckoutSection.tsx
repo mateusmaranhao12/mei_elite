@@ -52,8 +52,8 @@ const CheckoutSection = () => {
             }
 
             await emailjs.send(
-                'service_2gbhi3h',
                 'service_gh8clpe',
+                'template_r7vh6rk',
                 templateParams,
                 'RGF3EmnIiQ62BX9IH'
             )
