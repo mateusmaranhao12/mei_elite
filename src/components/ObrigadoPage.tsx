@@ -1,13 +1,12 @@
 'use client'
 
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 
 const ObrigadoPage = () => {
 
     const router = useRouter()
-    
+
     return (
         <div className="min-h-screen bg-white text-black">
             {/* Cabeçalho */}
@@ -39,8 +38,8 @@ const ObrigadoPage = () => {
 
                 {/* Imagem ilustrativa (substituindo o gif) */}
                 <div className="inline-block">
-                    <Image
-                        src="https://conectahubdigital.com.br/assets/otavio.jpeg"
+                    <img
+                        src="/assets/otavio.jpeg"
                         alt="Imagem obrigado"
                         width={320}
                         height={180}

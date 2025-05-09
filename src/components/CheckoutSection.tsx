@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import emailjs from '@emailjs/browser'
@@ -155,12 +154,13 @@ const CheckoutSection = () => {
                         <h3 className="font-bold mb-2">RESUMO</h3>
                         <p className="text-sm mb-4">Produto: Programa de 10 Semanas Sistema Unfair Advantage</p>
                         <p className="text-green-600 font-semibold text-lg mb-4">TOTAL: R$ 297,00</p>
-                        <Image
-                            src="https://conectahubdigital.com.br/assets/capa-curso.jpeg"
+                        <img
+                            src="/assets/capa-curso.jpeg"
                             alt="Produto"
                             width={300}
                             height={400}
                             className="rounded-md"
+
                         />
                     </div>
                 </div>
