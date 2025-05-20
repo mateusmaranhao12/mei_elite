@@ -25,15 +25,14 @@ const ObrigadoPage = () => {
                 </button>
 
                 <p className="font-semibold text-lg mb-4">
-                    As vagas para o programa eram realmente limitadas e nesse momento todos os acessos para o
-                    Sistema Unfair já foram preenchidos, mas...
+                    As vagas para o programa eram realmente limitadas e nesse momento todos os acessos para o Protocolo MEI de Elite já foram preenchidos, mas...
                 </p>
 
                 <p className="text-sm mb-6">
                     Eu guardei seu contato aqui e assim que novos acessos forem liberados eu vou pessoalmente te enviar uma mensagem para te avisar...
+                    Te vejo em breve!
                     <br />
-                    Te vejo em breve! <br />
-                    <strong>- Moritz Neto</strong>
+                    <strong>- - Otávio Coutinho</strong>
                 </p>
 
                 {/* Imagem ilustrativa (substituindo o gif) */}
